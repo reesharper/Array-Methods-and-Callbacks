@@ -98,11 +98,13 @@ Parameters:
 
 
 
-function getWinnersByYear() {
+function getWinnersByYear(getWinners, getYears) {
+
+    
 
 };
 
-getWinnersByYear();
+console.log(getWinnersByYear(getWinners, getYears));
 
 
 
@@ -113,13 +115,15 @@ getWinnersByYear();
 
 
 
-function getAverageGoals() {
+function getAverageGoals(data) {
 
-    
-
+    let goalAverage = data.map (function(item){
+    return (item["Home Team Goals"])
+    });
+    return goalAverage
 };
 
-getAverageGoals();
+console.log(getAverageGoals(fifaData));
 
 
 
