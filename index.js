@@ -72,8 +72,8 @@ console.log(getYears(getFinals));
 
 function getWinners(getFinals) {
 
-    let winners = getFinals(fifaData).map(function(item) {
-        if (item["Win conditions"].includes (item["Home Team Name"])) {
+    let winners = getFinals(fifaData).map(function (item) {
+        if (item["Win conditions"].includes(item["Home Team Name"])) {
             return (`${item["Home Team Name"]}`);
         } else {
             return (`${item["Away Team Name"]}`);
@@ -100,11 +100,17 @@ Parameters:
 
 function getWinnersByYear(getWinners, getYears) {
 
-    
+    let years = 0;
+    let winner = 0;
 
+    for (let i = 0; i < 19; i++) {
+        years = getYears(getFinals)[i];
+        winner = getWinners(getFinals)[i];
+        console.log(`in ${years}, ${winner} won the World Cup!`);
+    }
 };
 
-console.log(getWinnersByYear(getWinners, getYears));
+getWinnersByYear(getWinners, getYears);
 
 
 
@@ -121,10 +127,10 @@ function getAverageGoals(data) {
     //     return (item["Home Team Goals"] + item["Away Team Goals"]);
     // });
 
-    
-    let goalAverage = data.reduce(function (accumulator, value){
+
+    let goalAverage = data.reduce(function (accumulator, value) {
         return accumulator + ((value["Home Team Goals"] + value["Away Team Goals"]) / 851);
-    },0);
+    }, 0);
     return goalAverage;
 };
 
